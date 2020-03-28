@@ -25,8 +25,12 @@ const languages = {
       wrong: 'You missed!',
       win: 'Congratulations, you win',
       lose: 'Too bad, it wasn\'t this time',
+      draw: 'Wow! It\'s a draw!',
       underAbove: {
         main: 'Is the next card above or under this one?'
+      },
+      blackjack: {
+        main: 'Do you want one more card?'
       }
     }
   },
@@ -55,9 +59,13 @@ const languages = {
       right: 'Você acertou!',
       wrong: 'Você errou!',
       win: 'Parabéns, você venceu',
+      draw: 'Uau! Empatou!',
       lose: 'Que pena, não foi dessa vez',
       underAbove: {
         main: 'A próxima carta é maior ou menor do que essa?'
+      },
+      blackjack: {
+        main: 'Quer sacar mais uma carta?'
       }
     }
   }

@@ -1,7 +1,9 @@
 import UnderAboveGame from './underAboveGame'
+import BlackjackGame from './blackjackGame'
 
 const gamesList = {
-  underabove: UnderAboveGame
+  underabove: UnderAboveGame,
+  blackjack: BlackjackGame
 }
 
 class GameChooser {
