@@ -7,6 +7,7 @@ const fault = 5
 class UnderAboveGame {
   constructor () {
     this.name = 'Under Above Game'
+    this.hasDifficulty = true
   }
 
   static get difficulty () {
@@ -17,7 +18,7 @@ class UnderAboveGame {
     return { right: 'right', wrong: 'wrong' }
   }
 
-  static mainMessage (language) {
+  mainMessage (language) {
     return language.messages.underAbove.main
   }
 
@@ -27,7 +28,7 @@ class UnderAboveGame {
   }
 
   turn (language) {
-    return this.deck.getCards(1)[0].toText(language)
+    return [this.deck.getCards(1)[0].toText(language)]
   }
 
   makeChoice (option) {
