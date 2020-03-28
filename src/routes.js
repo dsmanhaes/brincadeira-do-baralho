@@ -80,16 +80,17 @@ routes.get('/:sessionId/:gameName', getSession, (request, response) => {
   session.game = new GameChooser(gameName)
   const game = session.game.game
 
-  if (game.difficulty) {
+  if (game.hasDifficulty) {
     return response.json(generateJson({
       gameName: game.name,
       message: session.language.messages.chooseDifficulty
     }))
   } else {
     session.isPlaying = true
+    game.startGame()
     return response.json(generateJson({
       message: game.mainMessage(session.language),
-      card: game.turn(session.language),
+      cards: game.turn(session.language),
       score: game.score
     }))
   }
@@ -108,7 +109,7 @@ routes.post('/:sessionId/:gameName', getSession, (request, response) => {
     if (choose) {
       result = session.language.messages[game.makeChoice(choose)]
       checkEndGame(game, result, session)
-      generateJson({ card: game.turn(session.language) })
+      generateJson({ cards: game.turn(session.language) })
     }
   } else {
     if (difficulty) {
@@ -118,7 +119,7 @@ routes.post('/:sessionId/:gameName', getSession, (request, response) => {
       generateJson({
         difficulty: session.difficulty,
         message: game.mainMessage(session.language),
-        card: game.turn(session.language)
+        cards: game.turn(session.language)
       })
     } else {
       return response.json(json)
@@ -138,11 +139,12 @@ function checkEndGame (game, result, session) {
     session.isPlaying = false
     generateJson({
       result: result,
-      score: game.score,
-      index: game.deck.index
+      score: game.score
     })
     if (game.win) {
       generateJson({ message: session.language.messages.win })
+    } else if (game.draw) {
+      generateJson({ message: session.language.messages.draw })
     } else if (game.lose) {
       generateJson({ message: session.language.messages.lose })
     }
