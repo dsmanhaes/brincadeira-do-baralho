@@ -11,8 +11,8 @@ class Deck {
         for (let number = numbers.from; number <= numbers.to; number++) {
           deck.push(new Card(number, number, naipe))
         }
-        type.specialCards.forEach((specialCard, index) => {
-          deck.push(new Card(numbers.to + index + 1, specialCard, naipe))
+        type.specialCards.forEach((specialCard) => {
+          deck.push(new Card(specialCard.value, specialCard.card, naipe))
         })
       })
       type.jokers.forEach(joker => {

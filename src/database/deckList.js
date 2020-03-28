@@ -45,17 +45,29 @@ const deckTypes = {
       to: 10
     },
     specialCards: [
-      specialCards.Jack,
-      specialCards.Queen,
-      specialCards.King,
-      specialCards.Ace
+      {
+        card: specialCards.Jack,
+        value: 11
+      },
+      {
+        card: specialCards.Queen,
+        value: 12
+      },
+      {
+        card: specialCards.King,
+        value: 13
+      },
+      {
+        card: specialCards.Ace,
+        value: 14
+      }
     ],
     jokers: [
       jokers.Colorfull,
       jokers.BlackWhite
     ]
   },
-  Common: {
+  Blackjack: {
     decks: 1,
     naipes: [
       naipes.Hearts,
@@ -68,10 +80,22 @@ const deckTypes = {
       to: 10
     },
     specialCards: [
-      specialCards.Jack,
-      specialCards.Queen,
-      specialCards.King,
-      specialCards.Ace
+      {
+        card: specialCards.Jack,
+        value: 10
+      },
+      {
+        card: specialCards.Queen,
+        value: 10
+      },
+      {
+        card: specialCards.King,
+        value: 10
+      },
+      {
+        card: specialCards.Ace,
+        value: 1
+      }
     ],
     jokers: []
   },
@@ -88,10 +112,22 @@ const deckTypes = {
       to: 7
     },
     specialCards: [
-      specialCards.Jack,
-      specialCards.Queen,
-      specialCards.King,
-      specialCards.Ace
+      {
+        card: specialCards.Jack,
+        value: 6.25
+      },
+      {
+        card: specialCards.Queen,
+        value: 6.5
+      },
+      {
+        card: specialCards.King,
+        value: 6.75
+      },
+      {
+        card: specialCards.Ace,
+        value: 8
+      }
     ],
     jokers: []
   },
@@ -106,10 +142,22 @@ const deckTypes = {
         to: 10
       },
       specialCards: [
-        specialCards.Jack,
-        specialCards.Queen,
-        specialCards.King,
-        specialCards.Ace
+        {
+          card: specialCards.Jack,
+          value: 0.5
+        },
+        {
+          card: specialCards.Queen,
+          value: 0.5
+        },
+        {
+          card: specialCards.King,
+          value: 0.5
+        },
+        {
+          card: specialCards.Ace,
+          value: 0.5
+        }
       ],
       jokers: []
     },
@@ -124,10 +172,22 @@ const deckTypes = {
         to: 10
       },
       specialCards: [
-        specialCards.Jack,
-        specialCards.Queen,
-        specialCards.King,
-        specialCards.Ace
+        {
+          card: specialCards.Jack,
+          value: 0.5
+        },
+        {
+          card: specialCards.Queen,
+          value: 0.5
+        },
+        {
+          card: specialCards.King,
+          value: 0.5
+        },
+        {
+          card: specialCards.Ace,
+          value: 0.5
+        }
       ],
       jokers: []
     },
@@ -144,10 +204,22 @@ const deckTypes = {
         to: 10
       },
       specialCards: [
-        specialCards.Jack,
-        specialCards.Queen,
-        specialCards.King,
-        specialCards.Ace
+        {
+          card: specialCards.Jack,
+          value: 0.5
+        },
+        {
+          card: specialCards.Queen,
+          value: 0.5
+        },
+        {
+          card: specialCards.King,
+          value: 0.5
+        },
+        {
+          card: specialCards.Ace,
+          value: 0.5
+        }
       ],
       jokers: []
     }
