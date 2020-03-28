@@ -54,7 +54,6 @@ routes.get('/:sessionId', getSession, (request, response) => {
   const session = request.session
 
   return response.json(generateJson({
-    sessionId: session.id,
     message: session.language.messages.insertUserName
   }))
 })
@@ -81,10 +80,19 @@ routes.get('/:sessionId/:gameName', getSession, (request, response) => {
   session.game = new GameChooser(gameName)
   const game = session.game.game
 
-  return response.json(generateJson({
-    gameName: game.name,
-    message: session.language.messages.chooseDifficulty
-  }))
+  if (game.difficulty) {
+    return response.json(generateJson({
+      gameName: game.name,
+      message: session.language.messages.chooseDifficulty
+    }))
+  } else {
+    session.isPlaying = true
+    return response.json(generateJson({
+      message: game.mainMessage(session.language),
+      card: game.turn(session.language),
+      score: game.score
+    }))
+  }
 })
 
 /**
@@ -109,19 +117,16 @@ routes.post('/:sessionId/:gameName', getSession, (request, response) => {
       session.isPlaying = true
       generateJson({
         difficulty: session.difficulty,
-        message: session.language.messages.turn,
+        message: game.mainMessage(session.language),
         card: game.turn(session.language)
       })
     } else {
-      return response.json(generateJson({
-        message: session.language.messages.chooseDifficulty
-      }))
+      return response.json(json)
     }
   }
   return response.json(generateJson({
     result: result,
-    score: game.score,
-    index: game.deck.index
+    score: game.score
   }))
 })
 

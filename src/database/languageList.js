@@ -21,11 +21,13 @@ const languages = {
       insertUserName: 'Insert your name',
       chooseGame: 'Choose the game',
       chooseDifficulty: 'Choose the game difficulty',
-      turn: 'Is the next card above or under this one?',
       right: 'You got it right!',
       wrong: 'You missed!',
       win: 'Congratulations, you win',
-      lose: 'Too bad, it wasn\'t this time'
+      lose: 'Too bad, it wasn\'t this time',
+      underAbove: {
+        main: 'Is the next card above or under this one?'
+      }
     }
   },
   pt: {
@@ -50,11 +52,13 @@ const languages = {
       insertUserName: 'Digite seu nome',
       chooseGame: 'Escolha o jogo',
       chooseDifficulty: 'Escolha a dificuldade do jogo',
-      turn: 'A próxima carta é maior ou menor do que essa?',
       right: 'Você acertou!',
       wrong: 'Você errou!',
       win: 'Parabéns, você venceu',
-      lose: 'Que pena, não foi dessa vez'
+      lose: 'Que pena, não foi dessa vez',
+      underAbove: {
+        main: 'A próxima carta é maior ou menor do que essa?'
+      }
     }
   }
 }

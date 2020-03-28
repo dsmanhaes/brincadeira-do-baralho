@@ -17,6 +17,10 @@ class UnderAboveGame {
     return { right: 'right', wrong: 'wrong' }
   }
 
+  static mainMessage (language) {
+    return language.messages.underAbove.main
+  }
+
   startGame (difficulty) {
     this.score = difficulty
     this.deck = new Deck(deckTypes.Full)
@@ -33,16 +37,17 @@ class UnderAboveGame {
     const isJoker = isNaN(next) || isNaN(current)
     const isAbove = option === 'above' && (next >= current || isJoker)
     const isUnder = option === 'under' && (next <= current || isJoker)
+    const isUnderAbove = option === 'above' || option === 'under'
     let response
 
-    if (isAbove || isUnder) {
+    if (!isUnderAbove) {
+      deck.index--
+    } else if (isAbove || isUnder) {
       this.score += hit
       response = UnderAboveGame.response.right
-    } else if (option) {
+    } else {
       this.score -= fault
       response = UnderAboveGame.response.wrong
-    } else {
-      deck.index--
     }
 
     this.checkEndGame()
